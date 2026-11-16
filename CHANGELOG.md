@@ -13,4 +13,4 @@ All notable changes to this project are documented here. The format follows
 - A client for registering, rotating, unregistering, waking and following announcements.
 - A self-hostable server delivering through APNs, FCM and relay announcements.
 
-[Unreleased]: https://github.com/WeirdBrains/weirdnet-push/commits/main
+[Unreleased]: https://github.com/WeirdBrains/weirdnet-push/compare/d0b62bdf920884a8a1801cbec0a38a58c4a79ded...HEAD
