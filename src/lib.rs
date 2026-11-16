@@ -6,6 +6,8 @@ pub mod api;
 pub mod client;
 mod error;
 pub mod handle;
+#[cfg(feature = "relay-wake")]
+pub mod relaywake;
 #[cfg(feature = "server")]
 pub mod server;
 pub mod wake;

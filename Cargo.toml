@@ -13,7 +13,9 @@ categories = ["network-programming", "cryptography"]
 include = ["src/**", "README.md", "LICENSE", "CHANGELOG.md", "SECURITY.md"]
 
 [features]
-default = ["client"]
+default = ["client", "relay-wake"]
+# The relay wake path's wire protocol (devices, senders and relays).
+relay-wake = ["dep:futures-util", "futures-util/io"]
 # The HTTP client for devices and senders.
 client = ["dep:reqwest"]
 # The push server (library and the `weirdnet-push` binary).

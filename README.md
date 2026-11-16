@@ -20,6 +20,10 @@ is that service, its client, and the payload format.
   and the relay wake path (opt-in on the device: relays following the server pass the
   payload to devices connected to them, for F-Droid and builds without Google services).
   A token the provider rejects revokes its handle.
+- **Relay wake path** ([`relaywake`], feature `relay-wake`, on by default): the wire
+  protocol `/weirdnet/wake/1`. A device that opted in keeps a stream open to its home relay
+  and subscribes its handles; trusted peers deliver sealed payloads to that relay, and the
+  relay also passes on the push service's relay announcements. weirdnet-relay serves it.
 
 ## What each party sees
 
@@ -27,7 +31,7 @@ is that service, its client, and the payload format.
 | --- | --- |
 | Apple / Google | the device token, the time, and 96 bytes of ciphertext (the alert text is a fixed placeholder; the device writes the real one after decrypting) |
 | The push service | the handle's hash and the device token (stored), the handle and time (per wake) |
-| Relays carrying announcements | the handle, the time, the ciphertext |
+| Relays carrying announcements, and the home relay on the wake path | the handle, the time, the ciphertext (and, for the home relay, which peer is subscribed) |
 | Senders | the handle and push public key they were given |
 
 Nobody but the device sees the reason, and nobody sees message content, the sender,
